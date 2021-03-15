@@ -27,11 +27,9 @@ namespace WebApplication.Api.Controllers
         [HttpGet("{id}", Name = "RetornaCliente" )]
         public async Task<ActionResult<Cliente>> Get(int id)
         {
-            throw new Exception("Exceção ao retornar o get pelo id");
+            var cliente = await _clienteService.Get(id);
 
-            var clientes = await _clienteService.Get(id);
-
-            return Ok(clientes);
+            return Ok(cliente);
         }
 
         [HttpPost]
